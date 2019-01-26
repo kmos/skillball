@@ -53,6 +53,7 @@ wss.on("connection", function(ws) {
 });
 
 wss.on('message', function incoming(data) {
+  console.log("recived message");
   console.log(data);
 });
 /**
