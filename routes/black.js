@@ -3,25 +3,22 @@ var router = express.Router();
 var logger = require('heroku-logger');
 var wss = require('../bin/www');
 
-var ws2;
-
-wss.on("connection", function(ws) {
-
-  ws2=ws;
-});
-
 /* post black listing. */
 router.post('/one_click', function(req, res, next) {
 
   logger.info("one click from black!");
+  res.send("ok");
 
-  if(ws2) {
-    ws2.send("{\n" + "  \"player\": 0,\n" +
-      "  \"move\": \"left\"\n" +
-      "}");
+  if(wss){
+    wss.on("connection", function(ws) {
+
+      ws.send("{\n" + "  \"player\": 0,\n" +
+        "  \"move\": \"left\"\n" +
+        "}");
+
+    });
   }
 
-  res.send("ok");
 });
 
 
