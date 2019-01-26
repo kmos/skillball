@@ -30,6 +30,20 @@ server.on('error', onError);
 server.on('listening', onListening);
 
 /**
+ * add socket-io
+ */
+
+var io = require('socket.io')(server);
+
+io.on('connection', function(socket) {
+  console.log ("websocket started");
+  console.log(socket.id);
+  socket.on('SEND_MESSAGE', function(data) {
+    io.emit('MESSAGE', data)
+  });
+});
+
+/**
  * Normalize a port into a number, string, or false.
  */
 
