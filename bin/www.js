@@ -37,25 +37,26 @@ var WebSocketServer = require("ws").Server;
 var wss = new WebSocketServer({server: server});
 console.log("websocket server created");
 
-wss.on("connection", function(ws) {
-  /*
+module.exports = wss;
+/*wss.on("connection", function(ws) {
+  /!*
   var id = setInterval(function() {
     ws.send(JSON.stringify(new Date()), function() {  })
   }, 1000);
 
-*/
+*!/
   console.log("websocket connection open");
 
-/*  ws.on("close", function() {
+/!*  ws.on("close", function() {
     console.log("websocket connection close");
     clearInterval(id)
-  })*/
+  })*!/
 
   ws.on('message', function incoming(data) {
     console.log("recived message");
     console.log(data);
   });
-});
+});*/
 
 /**
  * Normalize a port into a number, string, or false.
