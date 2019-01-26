@@ -30,17 +30,24 @@ server.on('error', onError);
 server.on('listening', onListening);
 
 /**
- * add socket-io
+ * add ws
  */
+var WebSocketServer = require("ws").Server;
 
-var io = require('socket.io')(server);
+var wss = new WebSocketServer({server: server});
+console.log("websocket server created");
 
-io.on('connection', function(socket) {
-  console.log ("websocket started");
-  console.log(socket.id);
-  socket.on('SEND_MESSAGE', function(data) {
-    io.emit('MESSAGE', data)
-  });
+wss.on("connection", function(ws) {
+  var id = setInterval(function() {
+    ws.send(JSON.stringify(new Date()), function() {  })
+  }, 1000);
+
+  console.log("websocket connection open");
+
+  ws.on("close", function() {
+    console.log("websocket connection close");
+    clearInterval(id)
+  })
 });
 
 /**
