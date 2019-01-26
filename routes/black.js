@@ -1,8 +1,18 @@
 var express = require('express');
 var router = express.Router();
+var logger = require('heroku-logger');
 
 /* post black listing. */
-router.post('/black/one_click', function(req, res, next) {
+router.post('/one_click', function(req, res, next) {
+
+  logger.info("one click from black!");
+  return "ok";
+});
+
+
+/* post black listing. */
+router.post('/double_click', function(req, res, next) {
+
   console.log("one click from black!");
 
   return "ok";
@@ -10,15 +20,7 @@ router.post('/black/one_click', function(req, res, next) {
 
 
 /* post black listing. */
-router.post('/black/double_click', function(req, res, next) {
-  console.log("one click from black!");
-
-  return "ok";
-});
-
-
-/* post black listing. */
-router.post('/black/long_click', function(req, res, next) {
+router.post('/long_click', function(req, res, next) {
   console.log("one click from black!");
 
   return "ok";
