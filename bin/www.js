@@ -46,11 +46,11 @@ wss.on("connection", function(ws) {
 */
   console.log("websocket connection open");
 
-  ws.on("close", function() {
+/*  ws.on("close", function() {
     console.log("websocket connection close");
     clearInterval(id)
   })
-});
+});*/
 
 wss.on('message', function incoming(data) {
   console.log("recived message");
