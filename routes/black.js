@@ -1,16 +1,16 @@
 /* post black listing. */
-router.post('/black/oneClick', function(req, res, next) {
+router.post('/black/one_click', function(req, res, next) {
   console.log("one click from black!");
 });
 
 
 /* post black listing. */
-router.post('/black/doubleClick', function(req, res, next) {
+router.post('/black/double_click', function(req, res, next) {
   console.log("one click from black!");
 });
 
 
 /* post black listing. */
-router.post('/black/longClick', function(req, res, next) {
+router.post('/black/long_click', function(req, res, next) {
   console.log("one click from black!");
 });
