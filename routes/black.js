@@ -11,14 +11,12 @@ router.post('/one_click', function(req, res, next) {
 
   wss.on("connection", function(ws) {
 
-    ws.send({
-      "player": 0,
-      "move": "left"
-    });
+    ws.send("{\n" +
+      "  \"player\": 0,\n" +
+      "  \"move\": \"left\"\n" +
+      "}");
 
   });
-
-
 });
 
 
