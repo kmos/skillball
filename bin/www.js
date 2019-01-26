@@ -50,12 +50,13 @@ wss.on("connection", function(ws) {
     console.log("websocket connection close");
     clearInterval(id)
   })*/
+
+  ws.on('message', function incoming(data) {
+    console.log("recived message");
+    console.log(data);
+  });
 });
 
-wss.on('message', function incoming(data) {
-  console.log("recived message");
-  console.log(data);
-});
 /**
  * Normalize a port into a number, string, or false.
  */
