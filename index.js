@@ -1,16 +1,20 @@
+const http = require('http');
+
 const WebSocket = require('ws');
  
-const wss = new WebSocket.Server({ port: 3001 });
+const express = require('express');
+const app = express();
+const port = 3000;
+
+const server = http.createServer(app);
+
+const wss = new WebSocket.Server({ server });
 
 let currentWs;
 
 wss.on('connection', function connection(ws) {
   currentWs = ws;
 });
-
-const express = require('express');
-const app = express();
-const port = 3000;
 
 app.all('/:player/:type', (req, res) => {
 
@@ -29,4 +33,6 @@ app.all('/:player/:type', (req, res) => {
   res.send('ok');
 });
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+server.listen(port);
+
+console.log(`Skillball listening on port ${port}!`);
