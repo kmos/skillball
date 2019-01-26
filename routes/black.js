@@ -6,24 +6,22 @@ var logger = require('heroku-logger');
 router.post('/one_click', function(req, res, next) {
 
   logger.info("one click from black!");
-  return "ok";
+  res.send("ok");
 });
 
 
 /* post black listing. */
 router.post('/double_click', function(req, res, next) {
 
-  console.log("one click from black!");
-
-  return "ok";
+  logger.info("double click from black!");
+  res.send("ok");
 });
 
 
 /* post black listing. */
 router.post('/long_click', function(req, res, next) {
-  console.log("one click from black!");
-
-  return "ok";
+  logger.info("long click from black!");
+  res.send("ok");
 });
 
 
