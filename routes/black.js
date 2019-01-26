@@ -1,3 +1,6 @@
+var express = require('express');
+var router = express.Router();
+
 /* post black listing. */
 router.post('/black/one_click', function(req, res, next) {
   console.log("one click from black!");
@@ -20,3 +23,6 @@ router.post('/black/long_click', function(req, res, next) {
 
   return "ok";
 });
+
+
+module.exports = router;
