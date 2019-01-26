@@ -50,6 +50,9 @@ wss.on("connection", function(ws) {
   })
 });
 
+wss.on('message', function incoming(data) {
+  console.log(data);
+});
 /**
  * Normalize a port into a number, string, or false.
  */
